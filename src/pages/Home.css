@@ -1,0 +1,47 @@
+.container {
+    background-color: #e6ffe6;
+    color: #333;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  
+  .title {
+    margin-top: 0;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .list-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .list-wrapper {
+    margin: 20px;
+  }
+  
+  .list-title {
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Pacific'
+  }
