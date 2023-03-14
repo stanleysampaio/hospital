@@ -1,0 +1,45 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  h1 {
+    font-size: 36px;
+    color: #009688;
+    margin-bottom: 30px;
+  }
+
+  .list-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .list-wrapper {
+    width: 50%;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list-item {
+    background-color: #e6f4ea;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .list-item-green {
+    background-color: #009688;
+    color: #fff;
+  }
+
+  .list-item-green:hover {
+    background-color: #00796b;
+  }

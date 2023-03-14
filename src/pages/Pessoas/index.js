@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CadastroPessoa from "../../components/CadastroPessoa";
 import api from "../../services/api";
+import "./styles.css"
 
 function Pessoas() {
     const [pessoas, setPessoas] = useState([]);
@@ -57,3 +58,4 @@ function Pessoas() {
 }
 
 export default Pessoas;
+
