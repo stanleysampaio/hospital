@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
-import './Home.css';
+import React, { useState, useEffect } from 'react';
+import './styles.css';
+import api from '../../services/api';
 
 function Home() {
   const [pacientes, setPacientes] = useState([]);
   const [filaDeEspera, setFilaDeEspera] = useState([]);
+  const [funcionarios, setFuncionarios] = useState([]);
+
+  useEffect(() => {
+    api.get("/funcionario")
+    .then((response) => {
+        setFuncionarios(response.data)
+    })
+    .catch((error) => { 
+        console.error("Erro ao listar funcionários!!!")
+    })
+  }, [])
 
   function adicionarPaciente() {
     const nome = prompt('Nome do paciente:');
@@ -36,9 +48,9 @@ function Home() {
         <div className="list-wrapper">
           <h2 className="list-title">Em atendimento:</h2>
           <ul className="list">
-            {pacientes.map((paciente) => (
-              <li className="list-item list-item-green" key={paciente.id}>
-                {paciente.nome}
+            {funcionarios.dados.map((funcionario) => (
+              <li className="list-item list-item-green" key={funcionario.codigo_pessoa}>
+                {funcionario.nome}
               </li>
             ))}
           </ul>
