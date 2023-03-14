@@ -18,20 +18,24 @@ function Setores() {
 
 
     return (
-        <div className="list-wrapper">
-          <h2 className="list-title">Listagem de setores</h2>
-          <ul className="list">
-            {
-                setores.map((setor) => (
-                    <li className="list-item list-item-green" key={setor.codigo}>
-                        {setor.nome}
-                        <p>Bloco {setor.bloco}</p>
-                        <p>Nº {setor.numero}</p>
-                        <p>Capacidade de {setor.capacidade} leitos</p>
-                    </li>
-                ))
-            }
-          </ul>
+        <div className="container">
+        <h1>Listagem de setores</h1>
+            <div className="list-container">
+                <div className="list-wrapper">
+                    <ul className="list">
+                    {
+                        setores.map((setor) => (
+                            <li className="list-item list-item-green" key={setor.codigo}>
+                                {setor.nome}
+                                <p>Bloco {setor.bloco}</p>
+                                <p>Nº {setor.numero}</p>
+                                <p>Capacidade de {setor.capacidade} leitos</p>
+                            </li>
+                        ))
+                    }
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 }

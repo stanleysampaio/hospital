@@ -13,9 +13,11 @@ function Pessoas() {
 
     const [pessoas, setPessoas] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [pessoaSelecionada, setPessoaSelecionada] = useState(formInicio);
-    const [nameField, setNameField] = useState("");
-    const [telField, setTelField] = useState(""); 
+    const [novaPessoa, setNovaPessoa] = useState(formInicio);
+
+    const setInput = (value) => {
+        setNovaPessoa(pessoa => ({...pessoa, ...value}))
+    }
 
     useEffect(() => {
         api.get("/pessoa")
@@ -28,11 +30,8 @@ function Pessoas() {
     }, [])
 
     function handleSubmit(e) {
-        api.patch(`/pessoa/update/${pessoaSelecionada.codigo}`, {
-            codigo: pessoaSelecionada.codigo, 
-            nome: nameField,
-            telefone: telField
-        })
+        console.log(novaPessoa)
+        api.patch(`/pessoa/update/`, novaPessoa)
         .then((response) => {
             console.log(response)
         })
@@ -41,15 +40,18 @@ function Pessoas() {
         })
 
         e.preventDefault();
-        setPessoaSelecionada(formInicio)
+        setNovaPessoa(formInicio)
+        setShowModal(false);
     }
 
-    const editarPessoa = (codigoPessoa) => {
-        pessoaSelecionada.codigo = codigoPessoa
+    function editarPessoa(e, codigoPessoa) {
+        console.log(codigoPessoa)
+        novaPessoa.codigo = codigoPessoa
         setShowModal(true);
+        e.preventDefault();
     }
 
-    const removerPessoa = (e, id) => {
+    function removerPessoa (e, id) {
         api.delete(`/pessoa/remove/${id}`)
         .then((response) => {
             console.log(response)
@@ -69,8 +71,8 @@ function Pessoas() {
                 {pessoas.map((pessoa, index) => (
                     <li className="list-item list-item-green" key={index}>
                     {pessoa.nome}
-                        <button onClick={() => editarPessoa(pessoa.codigo)}>Editar</button>
-                    <button onClick={(e) => removerPessoa(e, pessoa.codigo)}>Remover</button>
+                        <button onClick={(e) => editarPessoa(e, pessoa.codigo)}>Editar</button>
+                        <button onClick={(e) => removerPessoa(e, pessoa.codigo)}>Remover</button>
                     </li>
                 ))}
                 </ul>
@@ -89,16 +91,16 @@ function Pessoas() {
                             type="text"
                             id="nome"
                             name="nome"
-                            value={nameField}
-                            onChange={(e) => {setNameField(e)}}
+                            value={novaPessoa.nome}
+                            onChange={(e) => {setInput({nome: e.target.value})}}
                         />
                         <label htmlFor="email">Telefone:</label>
                         <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={telField}
-                            onChange ={(e) => {setTelField(e)}}
+                            type="text"
+                            id="telefone"
+                            name="telefone"
+                            value={novaPessoa.telefone}
+                            onChange ={(e) => {setInput({telefone: e.target.value})}}
                         />
                         <div className="buttons">
                             <button onClick={() => setShowModal(false)}>Cancelar</button>

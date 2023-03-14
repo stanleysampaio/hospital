@@ -18,17 +18,21 @@ function Funcionarios() {
 
 
     return (
-        <div className="list-wrapper">
-          <h2 className="list-title">Listagem de funcionários</h2>
-          <ul className="list">
-            {
-                funcionarios.map((funcionario) => (
-                <li className="list-item list-item-green" key={funcionario.codigo_pessoa}>
-                    {funcionario.nome}
-                </li>
-                ))
-            }
-          </ul>
+        <div className="container">
+        <h1>Listagem de funcionários</h1>
+            <div className="list-container">
+                <div className="list-wrapper">
+                    <ul className="list">
+                    {
+                        funcionarios.map((funcionario) => (
+                        <li className="list-item list-item-green" key={funcionario.codigo_pessoa}>
+                            {funcionario.nome}<span> - {funcionario.telefone}</span>
+                        </li>
+                        ))
+                    }
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 }
