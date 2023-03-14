@@ -1,0 +1,16 @@
+.list-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.list-wrapper {
+    margin: 20px;
+}
+
+.list-title {
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Pacific'
+}

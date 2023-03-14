@@ -37,6 +37,7 @@ function CadastroPessoa() {
         e.preventDefault();
         setPessoa(formInicio)
         
+        
     }
     return (
         <div className="form-cadastro">
